@@ -4,18 +4,18 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=ExampleKernel by osm0sis @ xda-developers
+kernel.string=taste kernel  by khirendra
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=maguro
-device.name2=toro
-device.name3=toroplus
-device.name4=tuna
-device.name5=
-supported.versions=
+device.name1=X01BD
+device.name2=X01BDA
+device.name3=ASUS_X01BD
+device.name4=ASUS_X01BDA
+device.name5=Zenfone Max Pro M2 (X01BD)
+supported.versions=13.0
 supported.patchlevels=
 supported.vendorpatchlevels=
 '; } # end properties
@@ -36,6 +36,12 @@ patch_vbmeta_flag=auto;
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
+
+# Mount partitions as rw
+mount /system;
+mount /vendor;
+mount -o remount,rw /system;
+mount -o remount,rw /vendor;
 
 # boot install
 dump_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
